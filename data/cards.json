@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Flame Guardian",
+    "rarity": "Rare",
+    "type": "Fire",
+    "description": "A mystical guardian who wields the power of fire to protect its allies.",
+    "power": 120,
+    "defense": 100,
+    "abilities": ["Fire Blast", "Burning Shield"],
+    "image": "https://source.unsplash.com/800x600/?fire,guardian"
+  },
+  {
+    "id": 2,
+    "name": "Crystal Seer",
+    "rarity": "Common",
+    "type": "Water",
+    "description": "A wise seer who uses the energy of crystals to foresee the future.",
+    "power": 80,
+    "defense": 90,
+    "abilities": ["Crystal Vision", "Healing Wave"],
+    "image": "https://source.unsplash.com/800x600/?crystal,water"
+  },
+  {
+    "id": 3,
+    "name": "Thunder Beast",
+    "rarity": "Epic",
+    "type": "Electric",
+    "description": "A ferocious beast that can summon devastating thunderstorms.",
+    "power": 200,
+    "defense": 150,
+    "abilities": ["Thunder Strike", "Electric Surge"],
+    "image": "https://source.unsplash.com/800x600/?thunder,storm"
+  },
+  {
+    "id": 4,
+    "name": "Shadow Assassin",
+    "rarity": "Legendary",
+    "type": "Dark",
+    "description": "An elusive assassin who strikes from the shadows with deadly precision.",
+    "power": 250,
+    "defense": 120,
+    "abilities": ["Shadow Strike", "Vanish"],
+    "image": "https://source.unsplash.com/800x600/?shadow,assassin"
+  },
+  {
+    "id": 5,
+    "name": "Nature Guardian",
+    "rarity": "Rare",
+    "type": "Earth",
+    "description": "A guardian of the forest, blessed with the strength of nature.",
+    "power": 140,
+    "defense": 160,
+    "abilities": ["Root Bind", "Regrowth"],
+    "image": "https://source.unsplash.com/800x600/?forest,guardian"
+  },
+  {
+    "id": 6,
+    "name": "Ice Sorcerer",
+    "rarity": "Uncommon",
+    "type": "Ice",
+    "description": "A powerful sorcerer who commands the freezing winds of the north.",
+    "power": 110,
+    "defense": 130,
+    "abilities": ["Ice Lance", "Frost Barrier"],
+    "image": "https://source.unsplash.com/800x600/?ice,sorcerer"
+  },
+  {
+    "id": 7,
+    "name": "Blazing Phoenix",
+    "rarity": "Mythic",
+    "type": "Fire",
+    "description": "A legendary phoenix that rises from the ashes to deliver fiery destruction.",
+    "power": 300,
+    "defense": 200,
+    "abilities": ["Phoenix Rebirth", "Inferno"],
+    "image": "https://source.unsplash.com/800x600/?phoenix,fire"
+  },
+  {
+    "id": 8,
+    "name": "Golden Knight",
+    "rarity": "Rare",
+    "type": "Light",
+    "description": "A noble knight clad in golden armor, defender of justice and virtue.",
+    "power": 170,
+    "defense": 180,
+    "abilities": ["Radiant Slash", "Shield of Light"],
+    "image": "https://source.unsplash.com/800x600/?gold,knight"
+  },
+  {
+    "id": 9,
+    "name": "Void Wraith",
+    "rarity": "Epic",
+    "type": "Dark",
+    "description": "A ghostly figure that haunts the void between realms.",
+    "power": 190,
+    "defense": 150,
+    "abilities": ["Void Blast", "Ethereal Form"],
+    "image": "https://source.unsplash.com/800x600/?void,ghost"
+  },
+  {
+    "id": 10,
+    "name": "Stormcaller",
+    "rarity": "Uncommon",
+    "type": "Electric",
+    "description": "A mage who commands the fury of the storm to overwhelm foes.",
+    "power": 130,
+    "defense": 110,
+    "abilities": ["Lightning Bolt", "Storm Surge"],
+    "image": "https://source.unsplash.com/800x600/?storm,lightning"
+  }
+]
