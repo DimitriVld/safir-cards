@@ -48,5 +48,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Cette application nécessite l'accès à la caméra pour scanner les cartes.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Cette application nécessite l'accès au microphone pour les vidéos.</string>
 </dict>
 </plist>
