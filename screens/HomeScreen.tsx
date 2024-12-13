@@ -1,23 +1,22 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Alert } from 'react-native';
 import { Camera, useCameraDevices, useCameraDevice } from 'react-native-vision-camera';
-import Tesseract from 'tesseract.js';
+import { readFile } from 'react-native-fs';
+import axios from 'axios';
 
 const HomeScreen = () => {
   const [hasPermission, setHasPermission] = useState(false);
   const [ocrText, setOcrText] = useState('');
   const devices = useCameraDevices();
   const device = useCameraDevice('back');
-  const camera = useRef<Camera>(null)
+  const camera = useRef(null);
+
+  const CLOUD_VISION_API_KEY = 'AIzaSyDKDhb93fOKOMnK-KYF78kdLpg3gKHlDPw';
 
   useEffect(() => {
     const getPermissions = async () => {
       const status = await Camera.requestCameraPermission();
-      if (status === 'granted') {
-        setHasPermission(true);
-      } else {
-        setHasPermission(false);
-      }
+      setHasPermission(status === 'granted');
     };
     getPermissions();
   }, []);
@@ -29,26 +28,49 @@ const HomeScreen = () => {
     }
 
     try {
-      const photo = await camera.current.takePhoto()
-      recognizeText(photo.path);
+      const photo = await camera.current.takePhoto({
+        skipMetadata: true,
+      });
+
+      const imagePath = photo.path;
+      const imageBase64 = await readFile(imagePath, 'base64');
+      recognizeText(imageBase64);
     } catch (error) {
       console.error('Erreur lors de la prise de photo :', error);
     }
   };
 
-  const recognizeText = async (imagePath) => {
+  const recognizeText = async (base64Image) => {
     try {
-      const result = await Tesseract.recognize(imagePath, 'eng', {
-        logger: (info) => console.log(info), // Log de la progression
-      });
-      setOcrText(result.data.text);
+      const response = await axios.post(
+        `https://vision.googleapis.com/v1/images:annotate?key=${CLOUD_VISION_API_KEY}`,
+        {
+          requests: [
+            {
+              image: {
+                content: base64Image,
+              },
+              features: [
+                {
+                  type: 'TEXT_DETECTION',
+                },
+              ],
+            },
+          ],
+        }
+      );
+
+      const text = response.data.responses[0]?.textAnnotations[0]?.description || 'Aucun texte détecté.';
+      setOcrText(text);
+      searchCard(text);
     } catch (error) {
       console.error('Erreur lors de la reconnaissance de texte :', error);
+      Alert.alert('Erreur', 'Impossible de détecter le texte.');
     }
   };
 
   const searchCard = (text) => {
-    console.log(`Recherche pour: ${text}`);
+    console.log(`Recherche pour : ${text}`);
   };
 
   if (!hasPermission) {
@@ -67,10 +89,10 @@ const HomeScreen = () => {
             photo={true}
           />
           <Button title="Prendre une photo" onPress={takePicture} />
-          <Text>{ocrText}</Text>
+          <Text>{ocrText || 'Aucun texte détecté.'}</Text>
         </>
       ) : (
-        <Text>Aucun appareil disponible</Text>
+        <Text>Aucun appareil disponible.</Text>
       )}
     </View>
   );

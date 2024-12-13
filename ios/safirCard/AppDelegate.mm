@@ -2,11 +2,6 @@
 
 #import <React/RCTBundleURLProvider.h>
 
-#if DEBUG
-#import <VisionCamera/VisionCamera-Swift.h>
-#endif
-
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
